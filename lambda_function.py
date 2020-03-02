@@ -7,8 +7,23 @@ def publish(client,topic):
     client.publish(topic)
 
 def main(event, context):
-    message = event["topic"]
-    
+    message = event['queryStringParameters']['topic']
+
+    if message == "openDoor":
+        solace_topic = "openDoor"
+    elif message == "closeDoor":
+        solace_topic = "closeDoor"
+    elif message == "light":
+        solace_topic = "light"
+    elif message == "fan":
+        solace_topic = "fan"
+    elif message == "music":
+        solace_topic = "music"
+    elif message == "alarm":
+        solace_topic = "alarm"
+    else:
+        solace_topic = "blank"
+        
     # Connection parameters for Solace Event broker
     solace_url = "mr2ko4me0p6h2f.messaging.solace.cloud"
     solace_port = 20134
@@ -16,20 +31,6 @@ def main(event, context):
     solace_passwd = "u3ve6gpbjs62v5efj3uobk2564"
     solace_clientid = "lambda"
 
-    if message == 1:
-        solace_topic = "openDoor"
-    elif message == 2:
-        solace_topic = "closeDoor"
-    elif message == 3:
-        solace_topic = "light"
-    elif message == 4:
-        solace_topic = "fan"
-    elif message == 5:
-        solace_topic = "music"
-    elif message == 6:
-        solace_topic = "alarm"
-    else:
-        solace_topic = "blank"
         
     # Instantiate/connect to mqtt client
     client = mqtt.Client(solace_clientid)
