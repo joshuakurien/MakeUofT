@@ -7,7 +7,7 @@ def publish(client,topic):
     client.publish(topic)
 
 def main(event, context):
-    message = event["queryStringParameters"]["topic"]
+    message = event["topic"]
     
     # Connection parameters for Solace Event broker
     solace_url = "mr2ko4me0p6h2f.messaging.solace.cloud"
