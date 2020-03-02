@@ -31,7 +31,6 @@ def main(event, context):
     solace_passwd = "u3ve6gpbjs62v5efj3uobk2564"
     solace_clientid = "lambda"
 
-        
     # Instantiate/connect to mqtt client
     client = mqtt.Client(solace_clientid)
     client.username_pw_set(username=solace_user, password=solace_passwd)
