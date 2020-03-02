@@ -8,7 +8,7 @@ def publish(client,topic):
 
 def main(event, context):
     message = event['queryStringParameters']['topic']
-
+    
     if message == "openDoor":
         solace_topic = "openDoor"
     elif message == "closeDoor":
@@ -23,7 +23,7 @@ def main(event, context):
         solace_topic = "alarm"
     else:
         solace_topic = "blank"
-        
+    
     # Connection parameters for Solace Event broker
     solace_url = "mr2ko4me0p6h2f.messaging.solace.cloud"
     solace_port = 20134
