@@ -28,7 +28,7 @@ def main(event, context):
     solace_url = "mr2ko4me0p6h2f.messaging.solace.cloud"
     solace_port = 20134
     solace_user = "solace-cloud-client"
-    solace_passwd = "u3ve6gpbjs62v5efj3uobk2564"
+    solace_passwd = "password"
     solace_clientid = "lambda"
 
     # Instantiate/connect to mqtt client
